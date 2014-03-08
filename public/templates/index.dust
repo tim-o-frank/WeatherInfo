@@ -2,4 +2,13 @@
 
 {<body}
     <h1>{@pre type="content" key="greeting"/}</h1>
+	<ul>
+		{#cities}
+		<li>{@pre type="content" key="city"/}</li>{~n}
+			<ul>
+				<li>{@pre type="content" key="temp"/}</li>
+				<li>{@pre type="content" key="weather"/}</li>
+			</ul>
+		{/cities}
+	</ul>
 {/body}

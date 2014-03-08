@@ -1,18 +1,16 @@
 'use strict';
 
-
-var IndexModel = require('../models/index');
-
+//model representing cities with weather data
+var CityModel = require('../models/city');
 
 module.exports = function (app) {
 
-    var model = new IndexModel();
-
-
-    app.get('/', function (req, res) {
-        
-        res.render('index', model);
-        
-    });
+	//process get requests
+	app.get('/', function (req, res) {
+		//generate weather model and render in callback
+		new CityModel(function (model) {
+			res.render('index', model);
+		}); 
+	});
 
 };
