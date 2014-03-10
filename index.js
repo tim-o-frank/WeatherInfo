@@ -2,6 +2,7 @@
 
 
 var kraken = require('kraken-js'),
+	connect = require('connect'),
     app = {};
 
 
@@ -18,6 +19,8 @@ app.requestStart = function requestStart(server) {
 
 app.requestBeforeRoute = function requestBeforeRoute(server) {
     // Run before any routes have been added.
+	//log request params to console
+	server.use(connect.logger(':req'));
 };
 
 
